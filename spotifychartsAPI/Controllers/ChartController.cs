@@ -53,10 +53,28 @@ namespace spotifychartsAPI.Controllers
             return Ok(_dataContext.GlobalDailyChart.Where(g => g.sSongName == request.Item && g.dtDatetime == request.Date).ToList());
         }
 
-        [HttpPost("/getSongDatetimeAllPlaylists")]
-        public ActionResult<List<Charts>> Cosillas([FromBody] ItemDatetimeRequest request)
+        [HttpPost("/getPlaylistDatetimeRange")]
+        public ActionResult<List<Charts>> GetPlaylistDatetimeRange([FromBody] ItemDatetimeRangeRequest request)
         {
-            return Ok(_dataContext.GlobalDailyChart.Where(g => g.sSongName == request.Item && g.dtDatetime == request.Date).ToList());
+            return Ok(_dataContext.GlobalDailyChart.Where(g => g.sPlaylist == request.Item && g.dtDatetime >= request.StartDate && g.dtDatetime <= request.EndDate).ToList());
+        }
+
+        [HttpPost("/getSongDatetimeRange")]
+        public ActionResult<List<Charts>> GetSongDatetimeRange([FromBody] ItemDatetimeRangeRequest request)
+        {
+            return Ok(_dataContext.GlobalDailyChart.Where(g => g.sSongName == request.Item && g.dtDatetime >= request.StartDate && g.dtDatetime <= request.EndDate).ToList());
+        }
+
+        [HttpPost("/getPositionDatetimeRange")]
+        public ActionResult<List<Charts>> GetPositionDatetimeRange([FromBody] ItemDatetimeRangeRequest request)
+        {
+            return Ok(_dataContext.GlobalDailyChart.Where(g => g.iChartPosition == Int32.Parse(request.Item) && g.dtDatetime >= request.StartDate && g.dtDatetime <= request.EndDate).ToList());
+        }
+
+        [HttpPost("/getArtistDatetimeRange")]
+        public ActionResult<List<Charts>> getArtistDatetimeRange([FromBody] ItemDatetimeRangeRequest request)
+        {
+            return Ok(_dataContext.GlobalDailyChart.Where(g => g.sArtistName == request.Item && g.dtDatetime >= request.StartDate && g.dtDatetime <= request.EndDate).ToList());
         }
     }
 }
