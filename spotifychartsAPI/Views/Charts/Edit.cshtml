@@ -1,0 +1,99 @@
+﻿@model spotifychartsAPI.Models.Charts
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Charts</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="iIdInsertion" />
+            <div class="form-group">
+                <label asp-for="dtDatetime" class="control-label"></label>
+                <input asp-for="dtDatetime" class="form-control" />
+                <span asp-validation-for="dtDatetime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="sPlaylist" class="control-label"></label>
+                <input asp-for="sPlaylist" class="form-control" />
+                <span asp-validation-for="sPlaylist" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="sIdSong" class="control-label"></label>
+                <input asp-for="sIdSong" class="form-control" />
+                <span asp-validation-for="sIdSong" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="iChartPosition" class="control-label"></label>
+                <input asp-for="iChartPosition" class="form-control" />
+                <span asp-validation-for="iChartPosition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="sSongName" class="control-label"></label>
+                <input asp-for="sSongName" class="form-control" />
+                <span asp-validation-for="sSongName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="sArtistName" class="control-label"></label>
+                <input asp-for="sArtistName" class="form-control" />
+                <span asp-validation-for="sArtistName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="iPeak" class="control-label"></label>
+                <input asp-for="iPeak" class="form-control" />
+                <span asp-validation-for="iPeak" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="sPrevPosition" class="control-label"></label>
+                <input asp-for="sPrevPosition" class="form-control" />
+                <span asp-validation-for="sPrevPosition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="iStreak" class="control-label"></label>
+                <input asp-for="iStreak" class="form-control" />
+                <span asp-validation-for="iStreak" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="iStreams" class="control-label"></label>
+                <input asp-for="iStreams" class="form-control" />
+                <span asp-validation-for="iStreams" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dtReleaseDate" class="control-label"></label>
+                <input asp-for="dtReleaseDate" class="form-control" />
+                <span asp-validation-for="dtReleaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dtFirstEntryDate" class="control-label"></label>
+                <input asp-for="dtFirstEntryDate" class="form-control" />
+                <span asp-validation-for="dtFirstEntryDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="iFirstEntryPosition" class="control-label"></label>
+                <input asp-for="iFirstEntryPosition" class="form-control" />
+                <span asp-validation-for="iFirstEntryPosition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="iTotalDaysOnChart" class="control-label"></label>
+                <input asp-for="iTotalDaysOnChart" class="form-control" />
+                <span asp-validation-for="iTotalDaysOnChart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

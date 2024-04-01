@@ -1,0 +1,113 @@
+﻿@model IEnumerable<spotifychartsAPI.Models.Charts>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.dtDatetime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sPlaylist)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sIdSong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.iChartPosition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sSongName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sArtistName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.iPeak)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sPrevPosition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.iStreak)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.iStreams)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dtReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dtFirstEntryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.iFirstEntryPosition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.iTotalDaysOnChart)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.dtDatetime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sPlaylist)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sIdSong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.iChartPosition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sSongName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sArtistName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.iPeak)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sPrevPosition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.iStreak)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.iStreams)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dtReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dtFirstEntryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.iFirstEntryPosition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.iTotalDaysOnChart)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.iIdInsertion">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.iIdInsertion">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.iIdInsertion">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
