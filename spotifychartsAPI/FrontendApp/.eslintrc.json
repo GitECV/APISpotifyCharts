@@ -26,6 +26,12 @@
                 "allowHigherOrderFunctions": false,
                 "allowTypedFunctionExpressions": false
             }
+        ],
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "auto"
+            }
         ]
     }
 }
