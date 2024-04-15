@@ -1,37 +1,31 @@
-import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Theme } from "@radix-ui/themes";
+import { Button } from "@radix-ui/themes";
 
 import "@radix-ui/themes/styles.css";
-import { Link, Route, Router } from "react-router-dom";
 
 function App(): JSX.Element {
-  return (
-    <div className="App">
-      <Theme>
-        <Router>
-          <div>
-            <nav>
-              <ul>
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/about">About</Link>
-                </li>
-                <li>
-                  <Link to="/contact">Contact</Link>
-                </li>
-              </ul>
-            </nav>
-
-            {/* Definición de rutas */}
-            <Route path="/" component={<h1>Cosas</h1>} />
-            <Route path="/about" Component={About} />
-            <Route path="/contact" Component={Contact} />
-          </div>
-        </Router>
-      </Theme>
+  // Componentes para las diferentes páginas
+  const Home = () => (
+    <div>
+      <Button>Let's go</Button>
     </div>
+  );
+  const About = () => <h1>About</h1>;
+  const Contact = () => <h1>Contact</h1>;
+  const NotFound = () => <h1>404 - Not Found</h1>;
+
+  return (
+    <Theme>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </Theme>
   );
 }
 
